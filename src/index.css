@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "R1aBold";
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/RiaSans-ExtraBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  color: #222;
+  font-family: Arial, sans-serif;
+  background: #f6fbf7;
+  padding-top: 70px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.top-header {
+  width: 100%;
+  height: 70px;
+  padding: 0 80px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: #222;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #6fae8b;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #6fae8b;
+}
+
+.main-visual {
+  min-height: 520px;
+  padding: 100px 20px;
+  text-align: center;
+  background: #f0f8f2;
+}
+
+.sub-name {
+  font-family: "R1aBold", sans-serif;
+  font-size: 55px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.main-visual h2 {
+  font-family: "R1aBold", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  margin: 20px 0;
+}
+
+.line {
+  width: 70px;
+  height: 3px;
+  background: #333;
+  margin: 35px auto;
+}
+
+.intro-text {
+  font-size: 26px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.more-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 20px;
+  border: 1px solid #6fae8b;
+  color: #357a55;
+  background: white;
+}
+
+.section {
+  padding: 80px 100px;
+  background: white;
+}
+
+.gray-section {
+  background: #f6fbf7;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 34px;
+  margin: 0 0 50px;
+}
+
+.about-grid {
+  width: 900px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.about-item {
+  border: 1px solid #ddd;
+  padding: 22px;
+  background: #fff;
+}
+
+.about-item strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.about-item p {
+  margin: 0;
+  color: #555;
+}
+
+.skill-box {
+  width: 900px;
+  margin: 0 auto 25px;
+  padding: 25px;
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.skill-box h3 {
+  margin: 0 0 15px;
+  color: #357a55;
+}
+
+.skill-box ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.skill-box li {
+  margin-bottom: 8px;
+}
+
+.archive-list {
+  width: 760px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.archive-card {
+  border: 1px solid #ddd;
+  padding: 25px;
+  background: #fff;
+  text-align: center;
+}
+
+.archive-card h3 {
+  margin: 0 0 12px;
+  color: #357a55;
+  font-size: 28px;
+}
+
+.archive-card p {
+  margin: 0;
+  color: #555;
+  font-size: 22px;
+}
+
+.project-card {
+  width: 900px;
+  margin: 0 auto 35px;
+  padding: 30px;
+  background: white;
+  border: 1px solid #ddd;
+
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card:hover {
+  border-color: #6fae8b;
+}
+
+.project-card h3 {
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+
+.project-date {
+  color: #777;
+  font-size: 14px;
+}
+
+.project-card p {
+  line-height: 1.7;
+}
+
+.project-card li {
+  margin-bottom: 8px;
+}
+
+.tech {
+  margin-top: 20px;
+  color: #357a55;
+  font-weight: bold;
+}
+
+.footer {
+  padding: 30px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
