@@ -1,127 +1,204 @@
+import { useState } from "react";
+import {
+  SiJavascript,
+  SiReact,
+  SiHtml5,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiFigma,
+} from "react-icons/si";
+
+
 function App() {
+
+  const skillCategories = ["Frontend", "Tools", "Deploy", "API", "Design"];
+  
+  const skillList = [
+    {
+      category: "Frontend",
+      name: "JavaScript",
+      icon: <SiJavascript />,
+      className: "js",
+    },
+    {
+      category: "Frontend",
+      name: "React",
+      icon: <SiReact />,
+      className: "react",
+    },
+    {
+      category: "Frontend",
+      name: "HTML",
+      icon: <SiHtml5 />,
+      className: "html",
+    },
+    {
+      category: "Frontend",
+      name: "CSS",
+      icon: "C",
+      className: "css",
+    },
+    {
+      category: "Tools",
+      name: "Git",
+      icon: <SiGit />,
+      className: "git",
+    },
+    {
+      category: "Tools",
+      name: "GitHub",
+      icon: <SiGithub />,
+      className: "github",
+    },
+    {
+      category: "Tools",
+      name: "VS Code",
+      icon: "VS",
+      className: "vscode",
+    },
+    {
+      category: "Deploy",
+      name: "Vercel",
+      icon: <SiVercel />,
+      className: "vercel",
+    },
+    {
+      category: "API",
+      name: "Google Maps API",
+      icon: "Map",
+      className: "map",
+    },
+    {
+      category: "Design",
+      name: "Photoshop",
+      icon: "Ps",
+      className: "photoshop",
+    },
+    {
+      category: "Design",
+      name: "Illustrator",
+      icon: "Ai",
+      className: "illustrator",
+    },
+    {
+      category: "Design",
+      name: "Figma",
+      icon: <SiFigma />,
+      className: "figma",
+    },
+  ];
+    
+
+    const [selectedSkill, setSelectedSkill] = useState(null);
+
+    const filteredSkills = selectedSkill
+  ? skillList.filter((skill) => skill.category === selectedSkill)
+  : skillList;
+
+  
   return (
     <div className="page">
-      <header className="top-header">
-        <a href="#home" className="logo">
-          Sangwoo Portfolio
-        </a>
 
-        <nav className="menu">
-          <a href="#about">About me</a>
-          <a href="#skills">Skills</a>
-          <a href="#archiving">Archiving</a>
-          <a href="#projects">Projects</a>
-        </nav>
-      </header>
+      <div className="side-links">
+          <a href="https://github.com/sangu-05" target="_blank" rel="noreferrer">
+            GH
+          </a>
+          <a href="https://vercel.com/sangu-05s-projects" target="_blank" rel="noreferrer">
+            VC
+          </a>
+          <div className="side-line"></div>
+        </div>
+        
+        <div className="right-contact">
+          <div className="right-line"></div>
+          <span>sw8037896@gmail.com</span>
+        </div>
 
       <section id="home" className="main-visual">
-        <p className="sub-name">- 조상우 -</p>
-        <h2>프론트엔드 개발자 포트폴리오</h2>
-        <div className="line"></div>
-        <p className="intro-text">
-          안녕하세요.
-          <br />
-          프론트엔드 개발자를 준비하고 있는 조상우입니다.
-        </p>
-        <a href="#about" className="more-btn">더 알아보기 ↓</a>
-      </section>
+        <div className="hero-left">
+          <p className="sub-name">Frontend Developer Portfolio</p>
 
-      <section id="about" className="section">
-        <h2 className="section-title">ABOUT ME</h2>
+          <h2>
+            사용자의 목적지까지
+            <br />
+            자연스럽게 안내하는
+            <br />
+            화면을 만듭니다.
+          </h2>
 
-        <div className="about-grid">
-          <div className="about-item">
-            <strong>이름</strong>
-            <p>조상우</p>
+          <p className="intro-text">
+            React와 JavaScript를 활용해 검색, 필터, 지도 API, 상태 관리 기능을 구현하며
+            사용자 흐름이 자연스러운 웹 화면을 만드는 프론트엔드 개발자가 되고싶습니다!
+          </p>
+
+          <div className="hero-tags">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>UI 구현</span>
+            <span>Search & Filter</span>
+            <span>Google Maps API</span>
           </div>
 
-          <div className="about-item">
-            <strong>생년월일</strong>
-            <p>2005.05.27</p>
+          <div className="hero-buttons">
+            <a href="#projects" className="main-btn">프로젝트 보기</a>
+            <a href="#skills" className="sub-btn">기술 보기</a>
+          </div>
+        </div>
+
+        <div className="hero-right">
+          <div className="profile-visual">
+          <div className="profile-outline"></div>
+
+          <div className="profile-image-box">
+            <div className="avatar-circle"></div>
+            <div className="avatar-body"></div>
+          </div>
+        </div>
+
+          <div className="mini-card card-one">
+            <strong>2+</strong>
+            <span>Projects</span>
           </div>
 
-          <div className="about-item">
-            <strong>위치</strong>
-            <p>대한민국 부산</p>
-          </div>
-
-          <div className="about-item">
-            <strong>이메일</strong>
-            <p>sw8037896@gmail.com</p>
-          </div>
-
-          <div className="about-item">
-            <strong>교육 과정</strong>
-            <p>웹 프론트엔드 개발자 과정</p>
-          </div>
-
-          <div className="about-item">
-            <strong>관심 분야</strong>
-            <p>웹 화면 구현, React UI 개발</p>
+          <div className="mini-card card-two">
+            <strong>React</strong>
+            <span>Main Skill</span>
           </div>
         </div>
       </section>
 
-      <section id="skills" className="section gray-section">
+      <div className="white-divider"></div>
+
+      <section id="skills" className="section skills-section">
         <h2 className="section-title">SKILLS</h2>
+        <p className="section-desc">
+          프로젝트를 만들며 직접 사용해본 기술들을 정리했습니다.
+        </p>
 
-        <div className="skill-box">
-          <h3>Frontend</h3>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-          </ul>
+        <div className="skill-category">
+          {skillCategories.map((category) => (
+            <button
+            key={category}
+            className={selectedSkill === category ? "active" : ""}
+            onClick={() =>
+              setSelectedSkill(selectedSkill === category ? null : category)
+            }
+          >
+            {category}
+          </button>
+          ))}
         </div>
 
-        <div className="skill-box">
-          <h3>UI / UX</h3>
-          <ul>
-            <li>Photoshop</li>
-            <li>Illustrator</li>
-            <li>Figma</li>
-          </ul>
-        </div>
-
-        <div className="skill-box">
-          <h3>Tools</h3>
-          <ul>
-            <li>VS Code</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Vercel</li>
-          </ul>
-        </div>
-
-        <div className="skill-box">
-          <h3>API</h3>
-          <ul>
-            <li>Google Maps API</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="archiving" className="section">
-        <h2 className="section-title">ARCHIVING</h2>
-
-        <div className="archive-list">
-          <a href="https://github.com/sangu-05"
-           target="_blank"
-          className="archive-card"
-          rel="noreferrer">
-            <h3>GitHub</h3>
-            <p>소스 코드 저장소</p>
-          </a>
-
-          <a href="https://velog.io/@sangu-05/posts"
-           target="_blank"
-            className="archive-card"
-            rel="noreferrer">
-            <h3>Velog</h3>
-            <p>공부 내용 정리</p>
-          </a>
-
+        <div className="skill-icon-grid">
+          {filteredSkills.map((skill) => (
+            <div className="skill-icon-card" key={skill.name}>
+              <div className={`skill-icon ${skill.className}`}>
+                {skill.icon}
+              </div>
+              <p>{skill.name}</p>
+            </div>
+          ))}
         </div>
       </section>
 
