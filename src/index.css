@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "R1aBold";
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/RiaSans-ExtraBold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'YeogiOttaeJalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
 }
 
 * {
@@ -145,24 +145,28 @@ a {
   color: #4f9f7a;
   font-size: 20px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 0.9px;
+  font-family: "Arial", sans-serif;
 }
 
 .main-visual h2 {
   margin: 0;
   font-size: 72px;
-  line-height: 1.12;
-  letter-spacing: -3px;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -4px;
   color: #222;
+  font-family: 'YeogiOttaeJalnan';
 }
 
 .intro-text {
   width: 720px;
   margin: 34px 0 0;
-  font-size: 21px;
-  line-height: 1.8;
+  font-size: 19px;
+  line-height: 1.6;
   color: #4b5563;
   word-break: keep-all;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
 }
 
 .hero-tags {
@@ -581,3 +585,4 @@ a {
   margin: 0 0 70px;
   text-align: center;
 }
+
