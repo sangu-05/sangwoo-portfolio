@@ -124,7 +124,7 @@ function App() {
             <br />
             자연스럽게 안내하는
             <br />
-            화면을 만듭니다.
+            화면을 만들겠습니다.
           </h2>
 
           <p className="intro-text">
