@@ -17,6 +17,18 @@ function App() {
   const skillList = [
     {
       category: "Frontend",
+      name: "HTML",
+      icon: <SiHtml5 />,
+      className: "html",
+    },
+    {
+      category: "Frontend",
+      name: "CSS",
+      icon: "C",
+      className: "css",
+    },
+    {
+      category: "Frontend",
       name: "JavaScript",
       icon: <SiJavascript />,
       className: "js",
@@ -28,16 +40,28 @@ function App() {
       className: "react",
     },
     {
-      category: "Frontend",
-      name: "HTML",
-      icon: <SiHtml5 />,
-      className: "html",
+      category: "Tools",
+      name: "VS Code",
+      icon: "VS",
+      className: "vscode",
+    },
+     {
+      category: "Design",
+      name: "Photoshop",
+      icon: "Ps",
+      className: "photoshop",
     },
     {
-      category: "Frontend",
-      name: "CSS",
-      icon: "C",
-      className: "css",
+      category: "Design",
+      name: "Illustrator",
+      icon: "Ai",
+      className: "illustrator",
+    },
+     {
+      category: "Design",
+      name: "Figma",
+      icon: <SiFigma />,
+      className: "figma",
     },
     {
       category: "Tools",
@@ -52,12 +76,6 @@ function App() {
       className: "github",
     },
     {
-      category: "Tools",
-      name: "VS Code",
-      icon: "VS",
-      className: "vscode",
-    },
-    {
       category: "Deploy",
       name: "Vercel",
       icon: <SiVercel />,
@@ -68,24 +86,6 @@ function App() {
       name: "Google Maps API",
       icon: "Map",
       className: "map",
-    },
-    {
-      category: "Design",
-      name: "Photoshop",
-      icon: "Ps",
-      className: "photoshop",
-    },
-    {
-      category: "Design",
-      name: "Illustrator",
-      icon: "Ai",
-      className: "illustrator",
-    },
-    {
-      category: "Design",
-      name: "Figma",
-      icon: <SiFigma />,
-      className: "figma",
     },
   ];
     
@@ -102,10 +102,11 @@ function App() {
 
       <div className="side-links">
           <a href="https://github.com/sangu-05" target="_blank" rel="noreferrer">
-            GH
+            <SiGithub />
           </a>
+
           <a href="https://vercel.com/sangu-05s-projects" target="_blank" rel="noreferrer">
-            VC
+            <SiVercel />
           </a>
           <div className="side-line"></div>
         </div>
@@ -220,7 +221,7 @@ function App() {
             <li>키워드 검색 및 카테고리 필터 기능 구현</li>
             <li>도시별 상세 페이지 구성</li>
             <li>Google Maps API를 활용한 지도와 마커 표시</li>
-            <li>GitHub와 Vercel을 이용한 배포 경험 보유</li>
+            <li>GitHub와 Vercel을 이용한 배포</li>
           </ul>
           <p className="tech">React, JavaScript, CSS, Google Maps API, Vercel</p>
         </a>
@@ -240,7 +241,7 @@ function App() {
             <li>회사 추가 및 삭제 기능 구현</li>
             <li>지원 상태 변경 기능 구현</li>
             <li>검색 및 상태별 카테고리 필터 기능 구현</li>
-            <li>GitHub와 Vercel을 이용한 배포 경험 보유</li>
+            <li>GitHub와 Vercel을 이용한 배포</li>
           </ul>
           <p className="tech">React, JavaScript, CSS, GitHub, Vercel</p>
         </a>
