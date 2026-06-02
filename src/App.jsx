@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FaReact } from "react-icons/fa";
+
 import {
   SiJavascript,
   SiReact,
@@ -7,6 +9,7 @@ import {
   SiGithub,
   SiVercel,
   SiFigma,
+  SiGooglemaps,
 } from "react-icons/si";
 
 
@@ -88,9 +91,41 @@ function App() {
       className: "map",
     },
   ];
+
+  const projects = {
+  beyond: {
+      title: "Beyond Map",
+      subtitle: "React와 Google Maps API를 활용한 여행지 추천 서비스입니다.\n\n검색, 필터링, 상세 정보 조회 기능을 제공합니다.",
+      description:
+        "잘 알려지지 않은 나라와 도시, 그리고 추천 여행지를 소개하는 웹사이트입니다.",
+      features: [
+        "예: 일본 or 문화/역사 등 키워드를 통해 검색이 가능함",
+        "카테고리 필터도 나열해 검색이아닌 방법으로도 찾을 수 있게 구현함",
+        "Google Maps API 연동",
+        "나라에 도시마다 상세하게 여행할 지역을 설명함",
+      ],
+      tech: "React, JavaScript, CSS, Google Maps API, Vercel",
+      link: "https://beyond-map.vercel.app/",
+    },
+
+    jobtrack: {
+      title: "JobTrack",
+      subtitle: "취업 준비 과정에서 지원 회사를 효율적으로 관리할 수 있는 웹 앱입니다. \n\n지원 현황 추적, 검색, 필터링 기능을 제공합니다.",
+      description:
+        "취업 준비 과정에서 지원 회사를 관리할 수 있도록 만든 웹 앱입니다.",
+      features: [
+        "회사를 추가하고 현재 취업 상태를 설정 가능함",
+        "지원 전, 지원 완료 등등 현 상태별로 필터 기능 구현함",
+        "회사명을 입력해 검색 가능",
+      ],
+      tech: "React, JavaScript, CSS, GitHub, Vercel",
+      link: "https://job-track-beta.vercel.app",
+    },
+  };
     
 
     const [selectedSkill, setSelectedSkill] = useState(null);
+    const [selectedProject, setSelectedProject] = useState(null);
 
     const filteredSkills = selectedSkill
   ? skillList.filter((skill) => skill.category === selectedSkill)
@@ -206,48 +241,129 @@ function App() {
       <section id="projects" className="section gray-section">
         <h2 className="section-title">PROJECTS</h2>
 
-        <a
-          href="https://beyond-map.vercel.app/"
-          target="_blank"
-          rel="noreferrer"
-          className="project-card"
-        >
-          <h3>Beyond Map</h3>
-          <p className="project-date">2026 개인 프로젝트</p>
-          <p>
-            잘 알려지지 않은 나라와 그 나라의 도시, 그리고 추천 여행지를 소개하는 웹사이트입니다.
-          </p>
-          <ul>
-            <li>키워드 검색 및 카테고리 필터 기능 구현</li>
-            <li>도시별 상세 페이지 구성</li>
-            <li>Google Maps API를 활용한 지도와 마커 표시</li>
-            <li>GitHub와 Vercel을 이용한 배포</li>
-          </ul>
-          <p className="tech">React, JavaScript, CSS, Google Maps API, Vercel</p>
-        </a>
+        <div className="project-grid">
 
-        <a
-          href="https://job-track-beta.vercel.app"
-          target="_blank"
-          rel="noreferrer"
-          className="project-card"
-        >
-          <h3>JobTrack</h3>
-          <p className="project-date">2026 개인 프로젝트</p>
-          <p>
-            취업 준비 과정에서 지원 회사를 관리할 수 있도록 만든 웹 앱입니다.
-          </p>
-          <ul>
-            <li>회사 추가 및 삭제 기능 구현</li>
-            <li>지원 상태 변경 기능 구현</li>
-            <li>검색 및 상태별 카테고리 필터 기능 구현</li>
-            <li>GitHub와 Vercel을 이용한 배포</li>
-          </ul>
-          <p className="tech">React, JavaScript, CSS, GitHub, Vercel</p>
-        </a>
-        
+  {Object.entries(projects).map(([key, project]) => (
+
+    <div
+      key={key}
+      className="project-card"
+      onClick={() => setSelectedProject(key)}
+    >
+      <h3>{project.title}</h3>
+
+      <p className="project-desc">
+        {project.subtitle}
+      </p>
+
+      {key === "beyond" && (
+       <div className="project-tech">
+        <SiReact className="react-icon" />
+        <SiJavascript className="js-icon" />
+        <SiGooglemaps className="map-icon" />
+        <SiGithub className="github-icon" />
+        <SiVercel className="vercel-icon" />
+      </div>
+      )}
+      
+      {key === "jobtrack" && (
+          <div className="project-tech">
+            <SiReact className="react-icon" />
+            <SiJavascript className="js-icon" />
+            <SiGithub className="github-icon" />
+            <SiVercel className="vercel-icon" />
+          </div>
+        )}
+        <span className="card-more">Click to view details →</span>
+
+    </div>
+      ))}
+    </div>
       </section>
 
+      {selectedProject && (
+          <div
+            className="modal-overlay"
+            onClick={() => setSelectedProject(null)}
+          >
+            <div
+              className="project-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="close-btn"
+                onClick={() => setSelectedProject(null)}
+              >
+                ×
+              </button>
+
+              <h2>{projects[selectedProject].title}</h2>
+
+              <p className="modal-label">프로젝트 설명</p>
+
+              <p className="modal-desc">
+                {projects[selectedProject].description}
+              </p>
+
+              <p className="modal-label">기술 스택</p>
+
+              <div className="modal-tech">
+                {selectedProject === "beyond" && (
+                  <>
+                    <SiReact className="react-icon" />
+                    <SiJavascript className="js-icon" />
+                    <SiGooglemaps className="map-icon" />
+                    <SiGithub className="github-icon" />
+                    <SiVercel className="vercel-icon" />
+                  </>
+                )}
+
+                {selectedProject === "jobtrack" && (
+                  <>
+                    <SiReact className="react-icon" />
+                    <SiJavascript className="js-icon" />
+                    <SiGithub className="github-icon" />
+                    <SiVercel className="vercel-icon" />
+                  </>
+                )}
+              </div>
+
+              <div className="modal-info-grid">
+                <div>
+                  <p>참여인원</p>
+                  <strong>개인 프로젝트</strong>
+                </div>
+
+                <div>
+                  <p>기간</p>
+                  <strong>2026</strong>
+                </div>
+
+                <div>
+                  <p>사이트 링크</p>
+                  <a
+                    href={projects[selectedProject].link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    프로젝트 방문
+                  </a>
+                </div>
+              </div>
+
+              <div className="modal-divider"></div>
+
+              <h3>상세 내용</h3>
+
+              <ul className="modal-feature-list">
+                {projects[selectedProject].features.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+     
       <footer className="footer">
           조상우 | Frontend Portfolio
       </footer>
