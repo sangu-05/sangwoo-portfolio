@@ -95,7 +95,7 @@ function App() {
   const projects = {
   beyond: {
       title: "Beyond Map",
-      subtitle: "React와 Google Maps API를 활용한 여행지 추천 서비스입니다.\n\n검색, 필터링, 상세 정보 조회 기능을 제공합니다.",
+      subtitle: "Google Maps API를 활용한 사람들이 잘 모르는 세계 여행지 추천 서비스입니다.\n\n검색, 카테고리별 필터링, 여행지 상세정보를 제공합니다.",
       description:
         "잘 알려지지 않은 나라와 도시, 그리고 추천 여행지를 소개하는 웹사이트입니다.",
       features: [
@@ -110,7 +110,7 @@ function App() {
 
     jobtrack: {
       title: "JobTrack",
-      subtitle: "취업 준비 과정에서 지원 회사를 효율적으로 관리할 수 있는 웹 앱입니다. \n\n지원 현황 추적, 검색, 필터링 기능을 제공합니다.",
+      subtitle: "취업 준비 과정에서 지원 회사를 편리하게 관리할 수 있는 웹 앱입니다. \n\n지원 현황 , 회사 검색, 지원상태 별 필터링을 제공합니다.",
       description:
         "취업 준비 과정에서 지원 회사를 관리할 수 있도록 만든 웹 앱입니다.",
       features: [
