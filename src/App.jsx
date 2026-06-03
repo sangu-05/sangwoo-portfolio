@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { FaReact } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 import {
   SiJavascript,
@@ -126,6 +125,38 @@ function App() {
 
     const [selectedSkill, setSelectedSkill] = useState(null);
     const [selectedProject, setSelectedProject] = useState(null);
+    const [bubbles, setBubbles] = useState([]);
+
+    const nameTop = ["C", "H", "O"];
+    const nameBottom = ["S", "A", "N", "G", "W", "O", "O"];
+
+    const heroSubText = "Frontend Developer Portfolio";
+    
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+          const newBubble = {
+            id: Date.now() + Math.random(),
+            x: e.clientX,
+            y: e.clientY,
+            size: Math.random() * 26 + 14,
+          };
+
+          setBubbles((prev) => [...prev.slice(-12), newBubble]);
+
+          setTimeout(() => {
+            setBubbles((prev) => prev.filter((bubble) => bubble.id !== newBubble.id));
+          }, 450);
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+          window.removeEventListener("mousemove", handleMouseMove);
+        };
+      }, []);
+
+
 
     const filteredSkills = selectedSkill
   ? skillList.filter((skill) => skill.category === selectedSkill)
@@ -134,6 +165,20 @@ function App() {
   
   return (
     <div className="page">
+      <div className="bubble-area">
+        {bubbles.map((bubble) => (
+          <span
+            key={bubble.id}
+            className="cursor-bubble"
+            style={{
+              left: `${bubble.x}px`,
+              top: `${bubble.y}px`,
+              width: `${bubble.size}px`,
+              height: `${bubble.size}px`,
+            }}
+          ></span>
+        ))}
+      </div>
 
       <div className="side-links">
           <a href="https://github.com/sangu-05" target="_blank" rel="noreferrer">
@@ -151,60 +196,40 @@ function App() {
           <span>sw8037896@gmail.com</span>
         </div>
 
-      <section id="home" className="main-visual">
-        <div className="hero-left">
-          <p className="sub-name">Frontend Developer Portfolio</p>
+        <section id="home" className="main-visual">
+          <div className="hero-name-wrap">
 
-          <h2>
-            사용자의 목적지까지
-            <br />
-            자연스럽게 안내하는
-            <br />
-            화면을 만들겠습니다.
-          </h2>
+            <div className="big-name top-name">
+              {nameTop.map((letter, index) => (
+                <span key={index} style={{ "--i": index }}>
+                  {letter}
+                </span>
+              ))}
+            </div>
 
-          <p className="intro-text">
-            React와 JavaScript를 활용해 검색, 필터, 지도 API, 상태 관리 기능을 구현하며
-            사용자 흐름이 자연스러운 웹 화면을 만드는 프론트엔드 개발자가 되고싶습니다!
-          </p>
+            <div className="big-name bottom-name">
+              {nameBottom.map((letter, index) => (
+                <span key={index} style={{ "--i": index + 3 }}>
+                  {letter}
+                </span>
+              ))}
+            </div>
 
-          <div className="hero-tags">
-            <span>React</span>
-            <span>JavaScript</span>
-            <span>UI 구현</span>
-            <span>Search & Filter</span>
-            <span>Google Maps API</span>
+              <p className="hero-sub-motion">
+              {heroSubText.split("").map((letter, index) => (
+                <span key={index} style={{ "--i": index }}>
+                  {letter === " " ? "\u00A0" : letter}
+                </span>
+              ))}
+            </p>
           </div>
+          
 
-          <div className="hero-buttons">
-            <a href="#projects" className="main-btn">프로젝트 보기</a>
-            <a href="#skills" className="sub-btn">기술 보기</a>
+          <div className="scroll-guide">
+            <span>SCROLL</span>
+            <div></div>
           </div>
-        </div>
-
-        <div className="hero-right">
-          <div className="profile-visual">
-          <div className="profile-outline"></div>
-
-          <div className="profile-image-box">
-            <div className="avatar-circle"></div>
-            <div className="avatar-body"></div>
-          </div>
-        </div>
-
-          <div className="mini-card card-one">
-            <strong>2+</strong>
-            <span>Projects</span>
-          </div>
-
-          <div className="mini-card card-two">
-            <strong>React</strong>
-            <span>Main Skill</span>
-          </div>
-        </div>
-      </section>
-
-      <div className="white-divider"></div>
+        </section>
 
       <section id="skills" className="section skills-section">
         <h2 className="section-title">SKILLS</h2>
@@ -274,7 +299,7 @@ function App() {
             <SiVercel className="vercel-icon" />
           </div>
         )}
-        <span className="card-more">Click to view details →</span>
+
 
     </div>
       ))}
@@ -363,10 +388,68 @@ function App() {
             </div>
           </div>
         )}
+
+        <section id="education" className="section education-section">
+          <h2 className="section-title">EDUCATION</h2>
+
+          <div className="education-list">
+            <div className="education-item">
+              <div className="edu-date">2021 - 2023</div>
+
+              <div className="edu-content">
+                <h3>인문계 고등학교 졸업</h3>
+                <p>체대 입시 준비</p>
+                <ul>
+                  <li>기초 체력 관리와 목표 달성을 위한 꾸준한 훈련 경험</li>
+                  <li>성실함과 자기관리 습관을 쌓은 시기</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="education-item">
+              <div className="edu-date">2025.10 - 2026.06</div>
+
+              <div className="edu-content">
+                <h3>부산 SBS 컴퓨터아트학원</h3>
+                <p>웹 프론트엔드 개발자 과정</p>
+                <ul>
+                  <li>Photoshop, Illustrator, 기초 디자인 및 UI/UX 디자인 학습</li>
+                  <li>HTML, CSS, JavaScript, React 기반 웹 화면 구현 학습</li>
+                  <li>포트폴리오 프로젝트 제작 및 배포 경험</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
      
-      <footer className="footer">
-          조상우 | Frontend Portfolio
+     <footer className="footer">
+        <h2>
+          감사합니다
+          <br />
+          편하게 연락 주신다면
+          <br />
+          늦어도 1~2일 이내에 꼭 답변드리겠습니다!
+        </h2>
+
+        <p className="footer-message">
+          아직 배움의 시간이 길지 않지만, 열심히 꾸준히 공부하며 성장하겠습니다 :)
+        </p>
+
+        <div className="contact-box">
+          <div className="contact-row">
+            <strong>이메일</strong>
+            <a href="mailto:sw8037896@gmail.com">sw8037896@gmail.com</a>
+          </div>
+
+          <div className="contact-row">
+            <strong>Github</strong>
+            <a href="https://github.com/sangu-05" target="_blank" rel="noreferrer">
+              @sangu-05
+            </a>
+          </div>
+        </div>
       </footer>
+
     </div>
   );
 }
