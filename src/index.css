@@ -509,8 +509,8 @@ a {
 }
 
 .project-tech svg {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -858,4 +858,11 @@ a {
 .skill-motion.show {
   opacity: 1;
   transform: translate(0, 0) scale(1);
+}
+
+.project-tech svg {
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 42px !important;
+  flex-shrink: 0;
 }
