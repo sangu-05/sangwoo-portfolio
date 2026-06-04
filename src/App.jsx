@@ -116,6 +116,8 @@ function App() {
     const [bubbles, setBubbles] = useState([]);
 
     const [skillsVisible, setSkillsVisible] = useState(false);
+    const [educationVisible, setEducationVisible] = useState(false);
+    const [footerVisible, setFooterVisible] = useState(false);
 
     const nameTop = ["C", "H", "O"];
     const nameBottom = ["S", "A", "N", "G", "W", "O", "O"];
@@ -196,7 +198,55 @@ function App() {
       };
     }, []);
 
+    useEffect(() => {
+      const educationSection = document.querySelector("#education");
 
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setEducationVisible(entry.isIntersecting);
+          });
+        },
+        {
+          threshold: 0.25,
+        }
+      );
+
+      if (educationSection) {
+        observer.observe(educationSection);
+      }
+
+      return () => {
+        if (educationSection) {
+          observer.unobserve(educationSection);
+        }
+      };
+    }, []);
+
+    useEffect(() => {
+      const footerSection = document.querySelector(".footer");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setFooterVisible(entry.isIntersecting);
+          });
+        },
+        {
+          threshold: 0.25,
+        }
+      );
+
+      if (footerSection) {
+        observer.observe(footerSection);
+      }
+
+      return () => {
+        if (footerSection) {
+          observer.unobserve(footerSection);
+        }
+      };
+    }, []);
 
     const filteredSkills = selectedSkill
   ? skillList.filter((skill) => skill.category === selectedSkill)
@@ -437,11 +487,14 @@ function App() {
           </div>
         )}
 
-        <section id="education" className="section education-section">
+        <section
+          id="education"
+          className={`section education-section ${educationVisible ? "show" : ""}`}
+        >
           <h2 className="section-title">EDUCATION</h2>
 
           <div className="education-list">
-            <div className="education-item">
+            <div className="education-item education-motion">
               <div className="edu-date">2021 - 2023</div>
 
               <div className="edu-content">
@@ -454,7 +507,7 @@ function App() {
               </div>
             </div>
 
-            <div className="education-item">
+            <div className="education-item education-motion">
               <div className="edu-date">2025.10 - 2026.06</div>
 
               <div className="edu-content">
@@ -470,7 +523,7 @@ function App() {
           </div>
         </section>
      
-     <footer className="footer">
+     <footer className={`footer footer-motion ${footerVisible ? "show" : ""}`}>
         <h2>
           감사합니다
           <br />

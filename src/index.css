@@ -804,15 +804,16 @@ a {
 
 .project-motion {
   opacity: 0;
-  transition: opacity 2s ease, transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 1.45s ease, transform 1.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-motion.from-left {
-  transform: translateX(-90px);
+  transform: translateX(360px);
 }
 
 .project-motion.from-right {
-  transform: translateX(90px);
+  transform: translateX(360px);
+  transition-delay: 0.18s;
 }
 
 .project-motion.show {
@@ -827,8 +828,8 @@ a {
 .skill-motion {
   opacity: 0;
   transition:
-    opacity 1s ease,
-    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 2s ease,
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .skills-section.show .skill-motion {
@@ -873,3 +874,32 @@ a {
   transform: translate(0, 0) scale(1);
 } 
 
+.education-motion {
+  opacity: 0;
+  transform: translateX(-240px);
+  transition:
+    opacity 2.0s ease,
+    transform 2.0s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.education-motion.delay {
+  transition-delay: 0.18s;
+}
+
+.education-section.show .education-motion {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.footer-motion {
+  opacity: 0;
+  transform: translateY(180px);
+  transition:
+    opacity 1.8s ease,
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-motion.show {
+  opacity: 1;
+  transform: translateY(0);
+}
