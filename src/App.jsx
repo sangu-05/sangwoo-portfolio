@@ -14,7 +14,7 @@ import {
 
 function App() {
 
-  const skillCategories = ["Frontend", "Tools", "Deploy", "API", "Design"];
+  const skillCategories = ["ALL", "Frontend", "Tools", "Deploy", "API", "Design"];
   
   const skillList = [
       {
@@ -307,14 +307,26 @@ function App() {
         <div className="skill-category">
           {skillCategories.map((category) => (
             <button
-            key={category}
-            className={selectedSkill === category ? "active" : ""}
-            onClick={() =>
-              setSelectedSkill(selectedSkill === category ? null : category)
-            }
-          >
-            {category}
-          </button>
+              key={category}
+              className={
+                category === "ALL"
+                  ? selectedSkill === null
+                    ? "active"
+                    : ""
+                  : selectedSkill === category
+                  ? "active"
+                  : ""
+              }
+              onClick={() => {
+                if (category === "ALL") {
+                  setSelectedSkill(null);
+                } else {
+                  setSelectedSkill(category);
+                }
+              }}
+            >
+              {category}
+            </button>
           ))}
         </div>
 
