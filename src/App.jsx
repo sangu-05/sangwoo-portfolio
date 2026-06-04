@@ -117,7 +117,6 @@ function App() {
 
     const [skillsVisible, setSkillsVisible] = useState(false);
     const [educationVisible, setEducationVisible] = useState(false);
-    const [footerVisible, setFooterVisible] = useState(false);
 
     const nameTop = ["C", "H", "O"];
     const nameBottom = ["S", "A", "N", "G", "W", "O", "O"];
@@ -219,31 +218,6 @@ function App() {
       return () => {
         if (educationSection) {
           observer.unobserve(educationSection);
-        }
-      };
-    }, []);
-
-    useEffect(() => {
-      const footerSection = document.querySelector(".footer");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            setFooterVisible(entry.isIntersecting);
-          });
-        },
-        {
-          threshold: 0.25,
-        }
-      );
-
-      if (footerSection) {
-        observer.observe(footerSection);
-      }
-
-      return () => {
-        if (footerSection) {
-          observer.unobserve(footerSection);
         }
       };
     }, []);
@@ -523,7 +497,7 @@ function App() {
           </div>
         </section>
      
-     <footer className={`footer footer-motion ${footerVisible ? "show" : ""}`}>
+     <footer className="footer">
         <h2>
           감사합니다
           <br />
