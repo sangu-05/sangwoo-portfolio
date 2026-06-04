@@ -115,6 +115,8 @@ function App() {
     const [selectedProject, setSelectedProject] = useState(null);
     const [bubbles, setBubbles] = useState([]);
 
+    const [skillsVisible, setSkillsVisible] = useState(false);
+
     const nameTop = ["C", "H", "O"];
     const nameBottom = ["S", "A", "N", "G", "W", "O", "O"];
 
@@ -170,29 +172,29 @@ function App() {
       }, []);
 
     useEffect(() => {
-  const skillItems = document.querySelectorAll(".skill-motion");
+      const skillsSection = document.querySelector("#skills");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setSkillsVisible(entry.isIntersecting);
+          });
+        },
+        {
+          threshold: 0.25,
         }
-      });
-    },
-    {
-      threshold: 0.2,
-    }
-  );
+      );
 
-  skillItems.forEach((item) => observer.observe(item));
+      if (skillsSection) {
+        observer.observe(skillsSection);
+      }
 
-  return () => {
-    skillItems.forEach((item) => observer.unobserve(item));
-  };
-}, []);
+      return () => {
+        if (skillsSection) {
+          observer.unobserve(skillsSection);
+        }
+      };
+    }, []);
 
 
 
@@ -269,7 +271,10 @@ function App() {
           </div>
         </section>
 
-      <section id="skills" className="section skills-section">
+      <section
+        id="skills"
+        className={`section skills-section ${skillsVisible ? "show" : ""}`}
+      >
         <h2 className="section-title">SKILLS</h2>
         <p className="section-desc">
           프로젝트를 만들며 직접 사용해본 기술들을 정리했습니다.
