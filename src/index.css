@@ -583,12 +583,15 @@ a {
   display: grid;
   grid-template-columns: 190px 1fr;
   gap: 40px;
+  align-items: flex-start;
 }
 
 .edu-date {
   color: #999;
   font-size: 23px;
   font-weight: 600;
+  line-height: 1.2;
+  padding-top: 2px;
 }
 
 .edu-date::before {
@@ -601,6 +604,7 @@ a {
   margin: 0 0 14px;
   font-size: 23px;
   color: #222;
+  line-height: 1.2;
 }
 
 .edu-content p {
