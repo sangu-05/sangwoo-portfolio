@@ -353,6 +353,7 @@ a {
 
   display: flex;
   flex-direction: column;
+  position: relative;
   justify-content: flex-start;
 }
 
@@ -502,16 +503,23 @@ a {
 }
 
 .project-tech {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 34px;
+
   display: flex;
+  align-items: center;
   gap: 30px;
-  margin-top: auto;
-  padding-top: 20px;
+
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .project-tech svg {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+  width: 30px;
+  height: 30px;
+  font-size: 34px;
   flex-shrink: 0;
 }
 
@@ -860,9 +868,3 @@ a {
   transform: translate(0, 0) scale(1);
 }
 
-.project-tech svg {
-  width: 30px !important;
-  height: 30px !important;
-  font-size: 42px !important;
-  flex-shrink: 0;
-}
