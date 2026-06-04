@@ -17,91 +17,79 @@ function App() {
   const skillCategories = ["Frontend", "Tools", "Deploy", "API", "Design"];
   
   const skillList = [
-    {
-      category: "Frontend",
-      name: "HTML",
-      icon: <SiHtml5 />,
-      className: "html",
-    },
-    {
-      category: "Frontend",
-      name: "CSS",
-      icon: "C",
-      className: "css",
-    },
-    {
-      category: "Frontend",
-      name: "JavaScript",
-      icon: <SiJavascript />,
-      className: "js",
-    },
-    {
-      category: "Frontend",
-      name: "React",
-      icon: <SiReact />,
-      className: "react",
-    },
-    {
-      category: "Tools",
-      name: "VS Code",
-      icon: "VS",
-      className: "vscode",
-    },
-     {
-      category: "Design",
-      name: "Photoshop",
-      icon: "Ps",
-      className: "photoshop",
-    },
-    {
-      category: "Design",
-      name: "Illustrator",
-      icon: "Ai",
-      className: "illustrator",
-    },
-     {
-      category: "Design",
-      name: "Figma",
-      icon: <SiFigma />,
-      className: "figma",
-    },
-    {
-      category: "Tools",
-      name: "Git",
-      icon: <SiGit />,
-      className: "git",
-    },
-    {
-      category: "Tools",
-      name: "GitHub",
-      icon: <SiGithub />,
-      className: "github",
-    },
-    {
-      category: "Deploy",
-      name: "Vercel",
-      icon: <SiVercel />,
-      className: "vercel",
-    },
-    {
-      category: "API",
-      name: "Google Maps API",
-      icon: "Map",
-      className: "map",
-    },
-  ];
+      {
+        category: "Frontend",
+        name: "HTML",
+        icon: "/icons/html.png",
+      },
+      {
+        category: "Frontend",
+        name: "CSS",
+        icon: "/icons/css.png",
+      },
+      {
+        category: "Frontend",
+        name: "JavaScript",
+        icon: "/icons/javascript.png",
+      },
+      {
+        category: "Frontend",
+        name: "React",
+        icon: "/icons/react.png",
+      },
+      {
+        category: "Tools",
+        name: "VS Code",
+        icon: "/icons/vscode.png",
+      },
+      {
+        category: "Design",
+        name: "Photoshop",
+        icon: "/icons/photoshop.png",
+      },
+      {
+        category: "Design",
+        name: "Illustrator",
+        icon: "/icons/illustrator.png",
+      },
+      {
+        category: "Design",
+        name: "Figma",
+        icon: "/icons/figma.png",
+      },
+      {
+        category: "Tools",
+        name: "Git",
+        icon: "/icons/git.png",
+      },
+      {
+        category: "Tools",
+        name: "GitHub",
+        icon: "/icons/github.png",
+      },
+      {
+        category: "Deploy",
+        name: "Vercel",
+        icon: "/icons/vercel.png",
+      },
+      {
+        category: "API",
+        name: "Google Maps API",
+        icon: "/icons/googlemaps.png",
+      },
+    ];
 
   const projects = {
   beyond: {
       title: "Beyond Map",
       subtitle: "Google Maps API를 활용한 사람들이 잘 모르는 세계 여행지 추천 서비스입니다.\n\n검색, 카테고리별 필터링, 여행지 상세정보를 제공합니다.",
       description:
-        "잘 알려지지 않은 나라와 도시, 그리고 추천 여행지를 소개하는 웹사이트입니다.",
+        "잘 알려지지 않은 나라와 도시, 그리고 추천 여행지를 소개하는 웹 서비스.",
       features: [
-        "예: 일본 or 문화/역사 등 키워드를 통해 검색이 가능함",
-        "카테고리 필터도 나열해 검색이아닌 방법으로도 찾을 수 있게 구현함",
+        "예: 일본 or 문화/역사 등 키워드를 통해 검색이 가능합니다",
+        "카테고리 필터도 나열해 검색이아닌 방법으로도 찾을 수 있습니다",
         "Google Maps API 연동",
-        "나라에 도시마다 상세하게 여행할 지역을 설명함",
+        "나라에 도시마다 상세하게 여행할 지역을 설명하였습니다",
       ],
       tech: "React, JavaScript, CSS, Google Maps API, Vercel",
       link: "https://beyond-map.vercel.app/",
@@ -111,11 +99,11 @@ function App() {
       title: "JobTrack",
       subtitle: "취업 준비 과정에서 지원 회사를 편리하게 관리할 수 있는 웹 앱입니다. \n\n지원 현황 , 회사 검색, 지원상태 별 필터링을 제공합니다.",
       description:
-        "취업 준비 과정에서 지원 회사를 관리할 수 있도록 만든 웹 앱입니다.",
+        "취업 준비 과정에서 지원 회사를 관리할 수 있도록 만든 웹 앱 서비스.",
       features: [
-        "회사를 추가하고 현재 취업 상태를 설정 가능함",
-        "지원 전, 지원 완료 등등 현 상태별로 필터 기능 구현함",
-        "회사명을 입력해 검색 가능",
+        "회사를 추가하고 현재 취업 상태를 설정 가능합니다",
+        "지원 전, 지원 완료 등등 현 상태별로 필터 기능이 있습니다",
+        "회사명을 입력해 검색 가능합니다",
       ],
       tech: "React, JavaScript, CSS, GitHub, Vercel",
       link: "https://job-track-beta.vercel.app",
@@ -155,6 +143,56 @@ function App() {
           window.removeEventListener("mousemove", handleMouseMove);
         };
       }, []);
+
+      useEffect(() => {
+        const motionItems = document.querySelectorAll(".project-motion");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+           entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              } else {
+                entry.target.classList.remove("show");
+              }
+            });
+          },
+          {
+            threshold: 0.25,
+          }
+        );
+
+        motionItems.forEach((item) => observer.observe(item));
+
+        return () => {
+          motionItems.forEach((item) => observer.unobserve(item));
+        };
+      }, []);
+
+    useEffect(() => {
+  const skillItems = document.querySelectorAll(".skill-motion");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  skillItems.forEach((item) => observer.observe(item));
+
+  return () => {
+    skillItems.forEach((item) => observer.unobserve(item));
+  };
+}, []);
 
 
 
@@ -196,8 +234,8 @@ function App() {
           <span>sw8037896@gmail.com</span>
         </div>
 
-        <section id="home" className="main-visual">
-          <div className="hero-name-wrap">
+      <section id="home" className="main-visual">
+      <div className="hero-name-wrap">
 
             <div className="big-name top-name">
               {nameTop.map((letter, index) => (
@@ -252,10 +290,13 @@ function App() {
         </div>
 
         <div className="skill-icon-grid">
-          {filteredSkills.map((skill) => (
-            <div className="skill-icon-card" key={skill.name}>
-              <div className={`skill-icon ${skill.className}`}>
-                {skill.icon}
+          {filteredSkills.map((skill, index) => (
+            <div
+              className={`skill-icon-card skill-motion motion-${index % 8}`}
+              key={skill.name}
+            >
+              <div className="skill-icon">
+                <img src={skill.icon} alt={skill.name} />
               </div>
               <p>{skill.name}</p>
             </div>
@@ -270,9 +311,11 @@ function App() {
 
   {Object.entries(projects).map(([key, project]) => (
 
-    <div
+   <div
       key={key}
-      className="project-card"
+      className={`project-card project-motion ${
+        key === "beyond" ? "from-left" : "from-right"
+      }`}
       onClick={() => setSelectedProject(key)}
     >
       <h3>{project.title}</h3>
@@ -397,7 +440,7 @@ function App() {
               <div className="edu-date">2021 - 2023</div>
 
               <div className="edu-content">
-                <h3>인문계 고등학교 졸업</h3>
+                <h3>인문계 경원고등학교 졸업</h3>
                 <p>체대 입시 준비</p>
                 <ul>
                   <li>기초 체력 관리와 목표 달성을 위한 꾸준한 훈련 경험</li>
@@ -410,7 +453,7 @@ function App() {
               <div className="edu-date">2025.10 - 2026.06</div>
 
               <div className="edu-content">
-                <h3>부산 SBS 컴퓨터아트학원</h3>
+                <h3>부산 SBS 컴퓨터아트학원 부산지점</h3>
                 <p>웹 프론트엔드 개발자 과정</p>
                 <ul>
                   <li>Photoshop, Illustrator, 기초 디자인 및 UI/UX 디자인 학습</li>

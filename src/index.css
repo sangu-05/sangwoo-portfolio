@@ -290,10 +290,6 @@ a {
   font-size: 20px;
 }
 
-.skill-icon svg {
-  font-size: 46px;
-}
-
 .skill-icon.photoshop {
   background: #e8f3ff;
   color: #2178c7;
@@ -505,11 +501,11 @@ a {
   white-space: pre-line;
 }
 
-
 .project-tech {
   display: flex;
   gap: 30px;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 20px;
 }
 
 .project-tech svg {
@@ -788,3 +784,75 @@ a {
   }
 }
 
+.skill-icon img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  display: block;
+}
+
+.project-motion {
+  opacity: 0;
+  transition: opacity 2s ease, transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-motion.from-left {
+  transform: translateX(-90px);
+}
+
+.project-motion.from-right {
+  transform: translateX(90px);
+}
+
+.project-motion.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-motion.from-right {
+  transition-delay: 0.15s;
+}
+
+.skill-motion {
+  opacity: 0;
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-motion.motion-0 {
+  transform: translate(-140px, -100px) scale(0.85);
+}
+
+.skill-motion.motion-1 {
+  transform: translateY(-130px) scale(0.85);
+}
+
+.skill-motion.motion-2 {
+  transform: translate(140px, -100px) scale(0.85);
+}
+
+.skill-motion.motion-3 {
+  transform: translateX(-150px) scale(0.85);
+}
+
+.skill-motion.motion-4 {
+  transform: translateX(150px) scale(0.85);
+}
+
+.skill-motion.motion-5 {
+  transform: translate(-140px, 100px) scale(0.85);
+}
+
+.skill-motion.motion-6 {
+  transform: translateY(130px) scale(0.85);
+}
+
+.skill-motion.motion-7 {
+  transform: translate(140px, 100px) scale(0.85);
+}
+
+.skill-motion.show {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
