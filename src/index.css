@@ -508,7 +508,7 @@ a {
   padding-top: 20px;
 }
 
-.project-tech img {
+.project-tech svg {
   width: 30px;
   height: 30px;
   object-fit: contain;
