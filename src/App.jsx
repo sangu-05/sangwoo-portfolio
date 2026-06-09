@@ -287,6 +287,14 @@ function App() {
               ))}
             </p>
           </div>
+
+          <div className="hero-keywords">
+            <span>22살</span>
+            <span>Frontend Beginner</span>
+            <span>2 Projects</span>
+            <span>신입 개발자</span>
+            <span>2026 Portfolio</span>
+          </div>
           
 
           <div className="scroll-guide">
