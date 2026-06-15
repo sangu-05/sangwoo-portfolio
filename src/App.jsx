@@ -505,7 +505,7 @@ function App() {
               <div className="edu-date">2025.10 - 2026.06</div>
 
               <div className="edu-content">
-                <h3>부산 SBS 컴퓨터아트학원 부산지점</h3>
+                <h3>SBS아카데미컴퓨터아트학원</h3>
                 <p>웹 프론트엔드 개발자 과정</p>
                 <ul>
                   <li>Photoshop, Illustrator, 기초 디자인 및 UI/UX 디자인 학습</li>
